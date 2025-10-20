@@ -30,12 +30,12 @@ body {
 .title {
   font-size: 2rem;
   font-weight: 700;
-  color: #ec1882;
+  color: #dd8db5;
   margin-top: 1rem;
 }
 
 .message {
-  color: #b30059;
+  color: #dd8db5;
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
