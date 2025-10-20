@@ -1,0 +1,308 @@
+body {
+  margin: 0;
+  /* background-color: #ffe6f2; */
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Ảnh chính */
+.main-image {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+.main-image:hover {
+  transform: scale(1.05);
+}
+
+/* Tiêu đề và lời chúc */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d63384;
+  margin-top: 1rem;
+}
+
+.message {
+  color: #b30059;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Nút yêu thương */
+.card button {
+  background: linear-gradient(45deg, #ff69b4, #ff85c1);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 105, 180, 0.6);
+}
+
+/* 🌺 Slider bên phải */
+.image-slider {
+  position: fixed;
+  top: 55%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 400px;
+  overflow: hidden;
+  background: rgba(255, 240, 245, 0.5);
+  border-radius: 30px 0 0 30px;
+  box-shadow: 0 6px 18px rgba(255, 105, 180, 0.25);
+}
+
+/* Dải ảnh trượt */
+.image-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  height: 380px;
+  animation: scrollX 18s linear infinite;
+}
+
+.slider-item {
+  width: 300px;
+  height: 350px;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-item:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6);
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* 🌌 Hiệu ứng bầu trời đêm có sao */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  background: radial-gradient(ellipse at bottom, #ce59be 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+/* Tạo sao bằng box-shadow ngẫu nhiên */
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    100px 200px white,
+    300px 400px #fff,
+    600px 150px #fff,
+    800px 700px white,
+    1200px 900px white,
+    1600px 300px #fff,
+    1800px 1000px white,
+    500px 800px #fff,
+    1300px 400px white;
+  animation: twinkle 4s infinite ease-in-out alternate;
+}
+
+/* Lấp lánh nhẹ */
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+/* 💖 Hiệu ứng trái tim */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: #ff69b4;
+  font-size: 20px;
+  animation: floatUp linear forwards;
+  z-index: 0;
+}
+.heart::before {
+  content: '💖';
+}
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 🌸 RESPONSIVE DESIGN */
+/* 🌸 RESPONSIVE DESIGN */
+
+/* Tablet (1024px trở xuống) */
+@media (max-width: 1024px) {
+   body {
+    font-size: 15px; 
+    background-size: cover;
+  }
+  .image-slider {
+    position: relative;      /* Không còn cố định */
+    width: 90%;
+    height: 320px;
+    margin: 2rem auto 0 auto;
+    border-radius: 20px;
+  }
+
+  .image-track {
+    gap: 1.5rem;
+    animation-duration: 20s; /* Cuộn chậm hơn */
+  }
+
+  .slider-item {
+    width: 240px;
+    height: 280px;
+  }
+
+  .main-image {
+    width: 240px;
+  }
+}
+
+/* Mobile (768px trở xuống) */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .main-image {
+    width: 200px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .card button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  /* 👉 Chuyển slider xuống dưới và căn giữa */
+  .image-slider {
+    position: relative !important;
+    width: 100%;
+    height: 260px;
+    margin: 2rem auto 0 auto;
+    background: rgba(255, 240, 245, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 6px 14px rgba(255, 105, 180, 0.25);
+  }
+
+  .image-track {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .slider-item {
+    width: 200px;
+    height: 220px;
+  }
+}
+
+/* iPhone XR / Màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+body{
+  display: block !important;
+  height: fit-content;
+  width: fit-content  ;
+  margin: 0;
+}
+.container{
+  max-width: 360px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+  .main-image {
+    width: 160px;
+  }
+
+  .title {
+    font-size: 1rem;
+    align-items: center;
+    line-height: 3.5;
+    max-width: 90%;  
+  }
+
+  .message {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  .card button {
+    width: 75%;
+    padding: 0.6rem;
+  }
+
+  /* ✅ Tối ưu slider cho iPhone XR */
+  .image-slider {
+    width: 80%;
+    height: 200px;
+    /* padding: 0.5rem; */
+    margin-top: 10rem;
+    background: rgba(255, 240, 245, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+  }
+
+  .image-track {
+    gap: 0.8rem;
+    animation-duration: 22s;
+  }
+
+  .slider-item {
+    width: 160px;
+    height: 180px;
+    flex-shrink: 0;
+  }
+}
