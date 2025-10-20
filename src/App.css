@@ -110,7 +110,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -5;
-  background: radial-gradient(ellipse at bottom, #ce59be 0%, #090a0f 100%);
+  background: radial-gradient(ellipse at bottom, #eba0e1 0%, #090a0f 100%);
   overflow: hidden;
 }
 
